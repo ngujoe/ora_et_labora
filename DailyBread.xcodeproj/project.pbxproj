@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8083D942E5D7B9600AC0903 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D8083D932E5D7B9600AC0903 /* FirebaseAnalytics */; };
+		D8174DC62E3F29B700338821 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = D8174DC52E3F29B700338821 /* WhisperKit */; };
+		D8174DC82E3F29B700338821 /* whisperkit-cli in Frameworks */ = {isa = PBXBuildFile; productRef = D8174DC72E3F29B700338821 /* whisperkit-cli */; };
+		D8174DD22E3F2D8500338821 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8174DD12E3F2D8500338821 /* AVFoundation.framework */; };
+		D8F574842E3FF86D0049B7BF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = D8F574832E3FF86D0049B7BF /* SwiftSoup */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8C4EC892E38AD210003E20D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8C4EC702E38AD1D0003E20D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8C4EC772E38AD1D0003E20D;
+			remoteInfo = DailyBread;
+		};
+		D8C4EC932E38AD210003E20D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8C4EC702E38AD1D0003E20D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8C4EC772E38AD1D0003E20D;
+			remoteInfo = DailyBread;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D8174DD12E3F2D8500338821 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D8C4EC782E38AD1D0003E20D /* DailyBread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyBread.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8C4EC882E38AD210003E20D /* DailyBreadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyBreadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8C4EC922E38AD210003E20D /* DailyBreadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyBreadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D8083E3F2E5FF6BE00AC0903 /* Exceptions for "DailyBread" folder in "DailyBread" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D8C4EC772E38AD1D0003E20D /* DailyBread */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D8C4EC7A2E38AD1D0003E20D /* DailyBread */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D8083E3F2E5FF6BE00AC0903 /* Exceptions for "DailyBread" folder in "DailyBread" target */,
+			);
+			path = DailyBread;
+			sourceTree = "<group>";
+		};
+		D8C4EC8B2E38AD210003E20D /* DailyBreadTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DailyBreadTests;
+			sourceTree = "<group>";
+		};
+		D8C4EC952E38AD210003E20D /* DailyBreadUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DailyBreadUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8C4EC752E38AD1D0003E20D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8174DD22E3F2D8500338821 /* AVFoundation.framework in Frameworks */,
+				D8F574842E3FF86D0049B7BF /* SwiftSoup in Frameworks */,
+				D8174DC62E3F29B700338821 /* WhisperKit in Frameworks */,
+				D8083D942E5D7B9600AC0903 /* FirebaseAnalytics in Frameworks */,
+				D8174DC82E3F29B700338821 /* whisperkit-cli in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C4EC852E38AD210003E20D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C4EC8F2E38AD210003E20D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8174DD02E3F2D8500338821 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8174DD12E3F2D8500338821 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8C4EC6F2E38AD1D0003E20D = {
+			isa = PBXGroup;
+			children = (
+				D8C4EC7A2E38AD1D0003E20D /* DailyBread */,
+				D8C4EC8B2E38AD210003E20D /* DailyBreadTests */,
+				D8C4EC952E38AD210003E20D /* DailyBreadUITests */,
+				D8174DD02E3F2D8500338821 /* Frameworks */,
+				D8C4EC792E38AD1D0003E20D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8C4EC792E38AD1D0003E20D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8C4EC782E38AD1D0003E20D /* DailyBread.app */,
+				D8C4EC882E38AD210003E20D /* DailyBreadTests.xctest */,
+				D8C4EC922E38AD210003E20D /* DailyBreadUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8C4EC772E38AD1D0003E20D /* DailyBread */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8C4EC9C2E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBread" */;
+			buildPhases = (
+				D8C4EC742E38AD1D0003E20D /* Sources */,
+				D8C4EC752E38AD1D0003E20D /* Frameworks */,
+				D8C4EC762E38AD1D0003E20D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D8C4EC7A2E38AD1D0003E20D /* DailyBread */,
+			);
+			name = DailyBread;
+			packageProductDependencies = (
+				D8174DC52E3F29B700338821 /* WhisperKit */,
+				D8174DC72E3F29B700338821 /* whisperkit-cli */,
+				D8F574832E3FF86D0049B7BF /* SwiftSoup */,
+				D8083D932E5D7B9600AC0903 /* FirebaseAnalytics */,
+			);
+			productName = DailyBread;
+			productReference = D8C4EC782E38AD1D0003E20D /* DailyBread.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8C4EC872E38AD210003E20D /* DailyBreadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8C4EC9F2E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBreadTests" */;
+			buildPhases = (
+				D8C4EC842E38AD210003E20D /* Sources */,
+				D8C4EC852E38AD210003E20D /* Frameworks */,
+				D8C4EC862E38AD210003E20D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8C4EC8A2E38AD210003E20D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D8C4EC8B2E38AD210003E20D /* DailyBreadTests */,
+			);
+			name = DailyBreadTests;
+			packageProductDependencies = (
+			);
+			productName = DailyBreadTests;
+			productReference = D8C4EC882E38AD210003E20D /* DailyBreadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D8C4EC912E38AD210003E20D /* DailyBreadUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8C4ECA22E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBreadUITests" */;
+			buildPhases = (
+				D8C4EC8E2E38AD210003E20D /* Sources */,
+				D8C4EC8F2E38AD210003E20D /* Frameworks */,
+				D8C4EC902E38AD210003E20D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8C4EC942E38AD210003E20D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D8C4EC952E38AD210003E20D /* DailyBreadUITests */,
+			);
+			name = DailyBreadUITests;
+			packageProductDependencies = (
+			);
+			productName = DailyBreadUITests;
+			productReference = D8C4EC922E38AD210003E20D /* DailyBreadUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8C4EC702E38AD1D0003E20D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					D8C4EC772E38AD1D0003E20D = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					D8C4EC872E38AD210003E20D = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = D8C4EC772E38AD1D0003E20D;
+					};
+					D8C4EC912E38AD210003E20D = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = D8C4EC772E38AD1D0003E20D;
+					};
+				};
+			};
+			buildConfigurationList = D8C4EC732E38AD1D0003E20D /* Build configuration list for PBXProject "DailyBread" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8C4EC6F2E38AD1D0003E20D;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D8174DC42E3F29B700338821 /* XCRemoteSwiftPackageReference "whisperkit" */,
+				D8F574822E3FF86C0049B7BF /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				D8083D922E5D7B9600AC0903 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D8C4EC792E38AD1D0003E20D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8C4EC772E38AD1D0003E20D /* DailyBread */,
+				D8C4EC872E38AD210003E20D /* DailyBreadTests */,
+				D8C4EC912E38AD210003E20D /* DailyBreadUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8C4EC762E38AD1D0003E20D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C4EC862E38AD210003E20D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C4EC902E38AD210003E20D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8C4EC742E38AD1D0003E20D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C4EC842E38AD210003E20D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C4EC8E2E38AD210003E20D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8C4EC8A2E38AD210003E20D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8C4EC772E38AD1D0003E20D /* DailyBread */;
+			targetProxy = D8C4EC892E38AD210003E20D /* PBXContainerItemProxy */;
+		};
+		D8C4EC942E38AD210003E20D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8C4EC772E38AD1D0003E20D /* DailyBread */;
+			targetProxy = D8C4EC932E38AD210003E20D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D8C4EC9A2E38AD210003E20D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D8C4EC9B2E38AD210003E20D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8C4EC9D2E38AD210003E20D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DailyBread/Preview Content\"";
+				DEVELOPMENT_TEAM = A3C6RYVNN3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyBread/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ora & Labora";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the homily. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Speech recognition services are used by this app to convert speech to text.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arm64;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBread;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8C4EC9E2E38AD210003E20D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DailyBread/Preview Content\"";
+				DEVELOPMENT_TEAM = A3C6RYVNN3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyBread/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ora & Labora";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the homily. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Speech recognition services are used by this app to convert speech to text.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arm64;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBread;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D8C4ECA02E38AD210003E20D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBreadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyBread.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyBread";
+			};
+			name = Debug;
+		};
+		D8C4ECA12E38AD210003E20D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBreadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyBread.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyBread";
+			};
+			name = Release;
+		};
+		D8C4ECA32E38AD210003E20D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBreadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DailyBread;
+			};
+			name = Debug;
+		};
+		D8C4ECA42E38AD210003E20D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBreadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DailyBread;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8C4EC732E38AD1D0003E20D /* Build configuration list for PBXProject "DailyBread" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C4EC9A2E38AD210003E20D /* Debug */,
+				D8C4EC9B2E38AD210003E20D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8C4EC9C2E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBread" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C4EC9D2E38AD210003E20D /* Debug */,
+				D8C4EC9E2E38AD210003E20D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8C4EC9F2E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBreadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C4ECA02E38AD210003E20D /* Debug */,
+				D8C4ECA12E38AD210003E20D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8C4ECA22E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBreadUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C4ECA32E38AD210003E20D /* Debug */,
+				D8C4ECA42E38AD210003E20D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D8083D922E5D7B9600AC0903 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.1.0;
+			};
+		};
+		D8174DC42E3F29B700338821 /* XCRemoteSwiftPackageReference "whisperkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argmaxinc/whisperkit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		D8F574822E3FF86C0049B7BF /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D8083D932E5D7B9600AC0903 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8083D922E5D7B9600AC0903 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		D8174DC52E3F29B700338821 /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8174DC42E3F29B700338821 /* XCRemoteSwiftPackageReference "whisperkit" */;
+			productName = WhisperKit;
+		};
+		D8174DC72E3F29B700338821 /* whisperkit-cli */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8174DC42E3F29B700338821 /* XCRemoteSwiftPackageReference "whisperkit" */;
+			productName = "whisperkit-cli";
+		};
+		D8F574832E3FF86D0049B7BF /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8F574822E3FF86C0049B7BF /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D8C4EC702E38AD1D0003E20D /* Project object */;
+}
