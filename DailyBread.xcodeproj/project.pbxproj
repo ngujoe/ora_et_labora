@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1496922E62B5C20000CCDD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8E1496912E62B5C20000CCDD /* FirebaseFirestore */; };
 		D8083D942E5D7B9600AC0903 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D8083D932E5D7B9600AC0903 /* FirebaseAnalytics */; };
 		D8174DC62E3F29B700338821 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = D8174DC52E3F29B700338821 /* WhisperKit */; };
 		D8174DC82E3F29B700338821 /* whisperkit-cli in Frameworks */ = {isa = PBXBuildFile; productRef = D8174DC72E3F29B700338821 /* whisperkit-cli */; };
@@ -79,6 +80,7 @@
 				D8174DC62E3F29B700338821 /* WhisperKit in Frameworks */,
 				D8083D942E5D7B9600AC0903 /* FirebaseAnalytics in Frameworks */,
 				D8174DC82E3F29B700338821 /* whisperkit-cli in Frameworks */,
+				8E1496922E62B5C20000CCDD /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +154,7 @@
 				D8174DC72E3F29B700338821 /* whisperkit-cli */,
 				D8F574832E3FF86D0049B7BF /* SwiftSoup */,
 				D8083D932E5D7B9600AC0903 /* FirebaseAnalytics */,
+				8E1496912E62B5C20000CCDD /* FirebaseFirestore */,
 			);
 			productName = DailyBread;
 			productReference = D8C4EC782E38AD1D0003E20D /* DailyBread.app */;
@@ -642,6 +645,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8E1496912E62B5C20000CCDD /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseFirestore;
+		};
 		D8083D932E5D7B9600AC0903 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D8083D922E5D7B9600AC0903 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
