@@ -87,7 +87,7 @@ struct FeedbackView: View {
                 .font(.headline)
                 .padding(.bottom)
 
-            TextField("Name (required)", text: $name)
+            TextField("Name (optional)", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.words)
                 .padding(.horizontal)
@@ -121,11 +121,11 @@ struct FeedbackView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(name.isEmpty || feedback.isEmpty ? Color.gray : Color.blue)
+                        .background(feedback.isEmpty ? Color.gray : Color.blue)
                         .cornerRadius(10)
                 }
             }
-            .disabled(name.isEmpty || feedback.isEmpty || isSubmitting)
+            .disabled(feedback.isEmpty || isSubmitting)
             .padding()
         }
     }

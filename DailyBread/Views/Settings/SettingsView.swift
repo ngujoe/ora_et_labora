@@ -10,30 +10,55 @@ import Combine
 
 struct SettingsView: View {
     @EnvironmentObject var settings: AppSettings
+    @State private var showFeedbackForm = false
     
     var body: some View {
-        NavigationStack{
-            Form { // Settings Form
-                Toggle("Dark Mode", isOn: $settings.isDarkMode)
-                Toggle("New Catholic Mode", isOn: $settings.isNewCatMode)
-                NavigationLink("Font Size"){
-                    AdjustFontView()
+        ZStack (alignment: .bottom){
+            NavigationStack{
+                Form { // Settings Form
+                    Toggle("Dark Mode", isOn: $settings.isDarkMode)
+                    Toggle("New Catholic Mode", isOn: $settings.isNewCatMode)
+                    NavigationLink("Font Size"){
+                        AdjustFontView()
+                    }
+                    NavigationLink("Privacy Policy"){
+                        Link("Please visit our Privacy Policy here.", destination: URL(string: "https://www.oraandlabora.org/privacy-policy")!)
+                            .padding()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(
+                                RoundedRectangle(cornerRadius: 20.0)
+                                    .fill(settings.isDarkMode ? .gray : .white)
+                                    .opacity(0.50)
+                                    .shadow(radius: 10.0)
+                                    .padding(10)
+                            )
+                    }
                 }
-                NavigationLink("Privacy Policy"){
-                    Link("Please visit our Privacy Policy here.", destination: URL(string: "https://www.oraandlabora.org/privacy-policy")!)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20.0)
-                                .fill(settings.isDarkMode ? .gray : .white)
-                                .opacity(0.50)
-                                .shadow(radius: 10.0)
-                                .padding(10)
-                        )
-                }
-                
+                .navigationTitle("Settings")
             }
-            .navigationTitle("Settings")
+            Button(action: {
+                withAnimation(.spring()) {
+                    self.showFeedbackForm = true
+                }
+            }) {
+                Text("Feedback")
+                    .font(.largeTitle)
+                    .padding(5)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.blue)
+                    )
+                    .foregroundColor(.white)
+                    .shadow(radius: 10)
+            }
+            .padding()
+            
+            // The feedback form wrapper that appears on top of everything
+            if showFeedbackForm {
+                FeedbackFormWrapper(showFeedbackForm: $showFeedbackForm)
+                    .transition(.scale.animation(.spring(response: 0.5, dampingFraction: 0.8)))
+                    .edgesIgnoringSafeArea(.all)
+            }
         }
     }
 }
