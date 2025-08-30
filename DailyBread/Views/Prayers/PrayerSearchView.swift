@@ -88,4 +88,5 @@ struct PrayerSearchView: View {
 
 #Preview{
     PrayerSearchView()
+        .environmentObject(AppSettings())
 }

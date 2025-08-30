@@ -17,4 +17,5 @@ struct DailyReadingsView: View {
 
 #Preview {
     DailyReadingsView()
+        .environmentObject(AppSettings())
 }

@@ -184,4 +184,5 @@ struct GabeView: View {
 
 #Preview{
     GabeView()
+        .environmentObject(AppSettings())
 }

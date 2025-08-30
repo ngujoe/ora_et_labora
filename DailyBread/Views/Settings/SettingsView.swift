@@ -93,4 +93,5 @@ class AppSettings: ObservableObject {
 
 #Preview{
     SettingsView()
+        .environmentObject(AppSettings())
 }
