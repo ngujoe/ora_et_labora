@@ -39,6 +39,8 @@ struct FeedbackView: View {
     @State private var isSubmitting: Bool = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
+    
+    @Environment(\.colorScheme) var colorScheme
 
     // An enum to manage the different view states
     enum ViewMode {
@@ -72,8 +74,12 @@ struct FeedbackView: View {
             }
         }
         .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(20)
+        .background(
+            RoundedRectangle(cornerRadius: 20.0)
+                .fill(colorScheme == .dark ? .gray : .white)
+                .shadow(radius: 10.0)
+                .padding(10)
+        )
         .shadow(radius: 20)
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Submission Status"), message: Text(alertMessage), dismissButton: .default(Text("OK")))

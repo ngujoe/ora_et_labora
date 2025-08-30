@@ -42,12 +42,14 @@ struct SettingsView: View {
                 }
             }) {
                 Text("Feedback")
-                    .font(.largeTitle)
-                    .padding(5)
+                    .padding(15)
+                    .frame(maxWidth: .infinity)
                     .background(
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.blue)
+                            .fill(Color.gray)
+                            .padding(10)
                     )
+                    .opacity(0.7)
                     .foregroundColor(.white)
                     .shadow(radius: 10)
             }
