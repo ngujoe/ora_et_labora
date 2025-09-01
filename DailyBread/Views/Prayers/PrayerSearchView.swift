@@ -37,8 +37,7 @@ struct PrayerDetailView: View {
                         .padding(10)
                     VStack(alignment: .leading){
                         Text("\(prayerText)")
-                            .font(.system(size: 20 * appSettings.fontScale))// TODO: * appSettings.fontScale add this when ready because it keeps crashing preview
-                        
+                            .font(.system(size: 20 * appSettings.fontScale))
                         Text("Copyright © Confraternity of Christian Doctrine, USCCB")
                             .font(.system(size: 12))
                             .padding(.top, 5)
@@ -56,21 +55,46 @@ struct PrayerDetailView: View {
 struct AllPrayersView: View {
     var body: some View {
         NavigationStack{
+            ScrollView{
             NavigationLink(destination: RosaryView()) {
-                Text("The Rosary")
-                    .foregroundColor(.white)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+                ZStack {
+                    Image("high-angle-open-bible-rosary-arrangement")
+                        .resizable()
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .padding(.horizontal,10)
+                    Text("The Rosary")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        .background(Color.white.blur(radius: 15))
+                        .shadow(radius: 50)
+                        .padding()
+                }
             }
-            .padding()
+            .frame(maxWidth: .infinity, maxHeight: 200)
+            
             NavigationLink(destination: PrayerSearchView()) {
-                Text("Prayer Catalog")
+                ZStack {
+                    Image("prayer_image")
+                        .resizable()
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .padding(.horizontal,10)
+                    Text("Prayer Catalog")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        .background(Color.white.blur(radius: 15))
+                        .shadow(radius: 50)
+                        .padding()
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: 200)
             Spacer()
                 .padding()
                 .navigationTitle("Prayer")
+        }
         }
     }
 }

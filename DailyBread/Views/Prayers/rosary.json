@@ -35,7 +35,7 @@
         "text": "Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen."
     },
     {
-        "id": "first_mystery",
+        "id": "mystery_title_1",
         "name": "The First Mystery",
         "text": "Announce the first mystery (e.g., The First Joyful Mystery: The Annunciation)."
     },
@@ -105,7 +105,7 @@
         "text": "O my Jesus, forgive us our sins, save us from the fires of hell, lead all souls to Heaven, especially those in most need of Thy mercy. Amen."
     },
     {
-        "id": "second_mystery",
+        "id": "mystery_title_2",
         "name": "The Second Mystery",
         "text": "Announce the second mystery (e.g., The Second Joyful Mystery: The Visitation)."
     },
@@ -175,7 +175,7 @@
         "text": "O my Jesus, forgive us our sins, save us from the fires of hell, lead all souls to Heaven, especially those in most need of Thy mercy. Amen."
     },
     {
-        "id": "third_mystery",
+        "id": "mystery_title_3",
         "name": "The Third Mystery",
         "text": "Announce the third mystery (e.g., The Third Joyful Mystery: The Nativity)."
     },
@@ -245,7 +245,7 @@
         "text": "O my Jesus, forgive us our sins, save us from the fires of hell, lead all souls to Heaven, especially those in most need of Thy mercy. Amen."
     },
     {
-        "id": "fourth_mystery",
+        "id": "mystery_title_4",
         "name": "The Fourth Mystery",
         "text": "Announce the fourth mystery (e.g., The Fourth Joyful Mystery: The Presentation)."
     },
@@ -315,7 +315,7 @@
         "text": "O my Jesus, forgive us our sins, save us from the fires of hell, lead all souls to Heaven, especially those in most need of Thy mercy. Amen."
     },
     {
-        "id": "fifth_mystery",
+        "id": "mystery_title_5",
         "name": "The Fifth Mystery",
         "text": "Announce the fifth mystery (e.g., The Fifth Joyful Mystery: The Finding in the Temple)."
     },

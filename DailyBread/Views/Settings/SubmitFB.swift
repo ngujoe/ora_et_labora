@@ -171,13 +171,13 @@ struct FeedbackView: View {
                 Text("Submit New Feedback")
                     .foregroundColor(.white)
                     .padding()
-                    .padding(.bottom, 10)
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
                     .cornerRadius(10)
             }
         }
         .padding(.horizontal)
+        .padding(.bottom)
     }
 
     private func submitFeedback() {
