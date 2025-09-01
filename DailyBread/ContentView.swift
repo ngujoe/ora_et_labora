@@ -24,13 +24,13 @@ struct ContentView: View {
             DailyReadingsView()
                 .tabItem {
                     Image(systemName: "book.fill")
-                    Text("Daily Readings")
+                    Text("Readings")
                 }
             
-            PrayerSearchView()
+            AllPrayersView()
                 .tabItem {
                     Image(systemName: "book.closed")
-                    Text("Prayer Catalog")
+                    Text("Prayer")
                 }
             /*
             GabeView()

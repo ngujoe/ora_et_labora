@@ -26,6 +26,7 @@ struct PrayerDetailView: View {
     @EnvironmentObject var appSettings: AppSettings
     
     var body: some View {
+        
         ScrollView{
             VStack{
                 ZStack{
@@ -52,6 +53,28 @@ struct PrayerDetailView: View {
     }
 }
 
+struct AllPrayersView: View {
+    var body: some View {
+        NavigationStack{
+            NavigationLink(destination: RosaryView()) {
+                Text("The Rosary")
+                    .foregroundColor(.white)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 20)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
+            NavigationLink(destination: PrayerSearchView()) {
+                Text("Prayer Catalog")
+            }
+            Spacer()
+                .padding()
+                .navigationTitle("Prayer")
+        }
+    }
+}
+
 struct PrayerSearchView: View {
     
     @State private var prayerItem: [PrayerItem] = []
@@ -70,23 +93,55 @@ struct PrayerSearchView: View {
         return decodedData
     }
     
-    var body: some View {
-        NavigationStack{
-            List(prayerItem) { item in
-                NavigationLink(destination: PrayerDetailView(prayerName: item.name, prayerText: item.text)) {
-                    Text(item.name)
-
-                }
+    @State private var searchText = ""
+    
+    
+    var filteredPrayers: [PrayerItem] {
+            guard !searchText.isEmpty else { return prayerItem }
+            return prayerItem.filter { prayer in
+                prayer.name.localizedCaseInsensitiveContains(searchText) ||
+                prayer.text.localizedCaseInsensitiveContains(searchText)
             }
+        }
+    
+    var body: some View {
+        if filteredPrayers.isEmpty && !searchText.isEmpty {
+            VStack {
+                Spacer()
+                Text("No prayers found.")
+                    .foregroundColor(.secondary)
+                    .font(.title3)
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+            NavigationStack{
+                     List(filteredPrayers) { item in
+                         NavigationLink(destination: PrayerDetailView(prayerName: item.name, prayerText: item.text)) {
+                             Text(item.name)
+                         }
+                     }
+                     .searchable(text: $searchText, prompt: "Search for a prayer")
+                     .onAppear {
+                         prayerItem = loadPrayers() // Call your data loading function
+                     }
+                /*
+                 List(filteredPrayers) { item in
+                 NavigationLink(destination: PrayerDetailView(prayerName: item.name, prayerText: item.text)) {
+                 Text(item.name)
+                 }
+                 }
+                 */
+            }
+            .navigationTitle("Prayer Catalog")
+            .searchable(text: $searchText, prompt: "Search for a prayer")
             .onAppear {
                 prayerItem = loadPrayers() // Call your data loading function
             }
-            .navigationTitle("Prayer Catalog")
-        }
     }
 }
 
 #Preview{
-    PrayerSearchView()
+    AllPrayersView()
         .environmentObject(AppSettings())
 }
