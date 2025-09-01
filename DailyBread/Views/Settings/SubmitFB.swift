@@ -80,18 +80,34 @@ struct FeedbackView: View {
                 .shadow(radius: 10.0)
                 .padding(10)
         )
-        .shadow(radius: 20)
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Submission Status"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
     }
 
     // A separate view for the feedback form
+    @State private var selection = "Feedback"
+    let fbOptions = ["Feedback", "Question", "Feature Request", "General Inquiry"]
+    
     private var feedbackForm: some View {
         VStack {
             Text("We'd love to hear from you! 😊")
                 .font(.headline)
                 .padding(.bottom)
+            VStack {
+                        Picker("Select a paint color", selection: $selection) {
+                            ForEach(fbOptions, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        //.pickerStyle(.menu)
+                    }
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.gray)
+                        .opacity(0.1)
+                )
+                .padding(.horizontal)
 
             TextField("Name (optional)", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -173,8 +189,8 @@ struct FeedbackView: View {
             "feedback": feedback,
             "timestamp": FieldValue.serverTimestamp()
         ]
-
-        db.collection("feedback").addDocument(data: feedbackData) { error in
+        //db.collection("feedback") OLD CREATE FOR SPECIFCALLLY FEEDBACK
+        db.collection(selection).addDocument(data: feedbackData) { error in
             self.isSubmitting = false
             if let error = error {
                 print("Error adding document: \(error)")
@@ -185,6 +201,7 @@ struct FeedbackView: View {
                 // Show the thank you view instead of closing the form
                 withAnimation {
                     self.viewMode = .thankYou
+                    selection = "Feedback" // Resets feedback selection
                 }
             }
         }
