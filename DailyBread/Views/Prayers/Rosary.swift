@@ -141,7 +141,7 @@ struct RosaryView: View {
                 
                 Spacer()
                 
-                // Display the current prayer name and text
+                // Display the current prayer name and text TODO: GET THE Rosary TITLES RIGHT
                 if let prayer = currentPrayer {
                     VStack(spacing: 20) {
                         Spacer()
