@@ -15,28 +15,9 @@
 		D8F574842E3FF86D0049B7BF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = D8F574832E3FF86D0049B7BF /* SwiftSoup */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D8C4EC892E38AD210003E20D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8C4EC702E38AD1D0003E20D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D8C4EC772E38AD1D0003E20D;
-			remoteInfo = DailyBread;
-		};
-		D8C4EC932E38AD210003E20D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8C4EC702E38AD1D0003E20D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D8C4EC772E38AD1D0003E20D;
-			remoteInfo = DailyBread;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		D8174DD12E3F2D8500338821 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D8C4EC782E38AD1D0003E20D /* DailyBread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyBread.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8C4EC882E38AD210003E20D /* DailyBreadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyBreadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8C4EC922E38AD210003E20D /* DailyBreadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyBreadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -58,16 +39,6 @@
 			path = DailyBread;
 			sourceTree = "<group>";
 		};
-		D8C4EC8B2E38AD210003E20D /* DailyBreadTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = DailyBreadTests;
-			sourceTree = "<group>";
-		};
-		D8C4EC952E38AD210003E20D /* DailyBreadUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = DailyBreadUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,20 +52,6 @@
 				D8083D942E5D7B9600AC0903 /* FirebaseAnalytics in Frameworks */,
 				D8174DC82E3F29B700338821 /* whisperkit-cli in Frameworks */,
 				8E1496922E62B5C20000CCDD /* FirebaseFirestore in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8C4EC852E38AD210003E20D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8C4EC8F2E38AD210003E20D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,8 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				D8C4EC7A2E38AD1D0003E20D /* DailyBread */,
-				D8C4EC8B2E38AD210003E20D /* DailyBreadTests */,
-				D8C4EC952E38AD210003E20D /* DailyBreadUITests */,
 				D8174DD02E3F2D8500338821 /* Frameworks */,
 				D8C4EC792E38AD1D0003E20D /* Products */,
 			);
@@ -124,8 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				D8C4EC782E38AD1D0003E20D /* DailyBread.app */,
-				D8C4EC882E38AD210003E20D /* DailyBreadTests.xctest */,
-				D8C4EC922E38AD210003E20D /* DailyBreadUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,52 +113,6 @@
 			productReference = D8C4EC782E38AD1D0003E20D /* DailyBread.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D8C4EC872E38AD210003E20D /* DailyBreadTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D8C4EC9F2E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBreadTests" */;
-			buildPhases = (
-				D8C4EC842E38AD210003E20D /* Sources */,
-				D8C4EC852E38AD210003E20D /* Frameworks */,
-				D8C4EC862E38AD210003E20D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D8C4EC8A2E38AD210003E20D /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D8C4EC8B2E38AD210003E20D /* DailyBreadTests */,
-			);
-			name = DailyBreadTests;
-			packageProductDependencies = (
-			);
-			productName = DailyBreadTests;
-			productReference = D8C4EC882E38AD210003E20D /* DailyBreadTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D8C4EC912E38AD210003E20D /* DailyBreadUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D8C4ECA22E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBreadUITests" */;
-			buildPhases = (
-				D8C4EC8E2E38AD210003E20D /* Sources */,
-				D8C4EC8F2E38AD210003E20D /* Frameworks */,
-				D8C4EC902E38AD210003E20D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D8C4EC942E38AD210003E20D /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D8C4EC952E38AD210003E20D /* DailyBreadUITests */,
-			);
-			name = DailyBreadUITests;
-			packageProductDependencies = (
-			);
-			productName = DailyBreadUITests;
-			productReference = D8C4EC922E38AD210003E20D /* DailyBreadUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -218,14 +125,6 @@
 				TargetAttributes = {
 					D8C4EC772E38AD1D0003E20D = {
 						CreatedOnToolsVersion = 16.2;
-					};
-					D8C4EC872E38AD210003E20D = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = D8C4EC772E38AD1D0003E20D;
-					};
-					D8C4EC912E38AD210003E20D = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = D8C4EC772E38AD1D0003E20D;
 					};
 				};
 			};
@@ -249,28 +148,12 @@
 			projectRoot = "";
 			targets = (
 				D8C4EC772E38AD1D0003E20D /* DailyBread */,
-				D8C4EC872E38AD210003E20D /* DailyBreadTests */,
-				D8C4EC912E38AD210003E20D /* DailyBreadUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D8C4EC762E38AD1D0003E20D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8C4EC862E38AD210003E20D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8C4EC902E38AD210003E20D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -287,34 +170,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D8C4EC842E38AD210003E20D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8C4EC8E2E38AD210003E20D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D8C4EC8A2E38AD210003E20D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D8C4EC772E38AD1D0003E20D /* DailyBread */;
-			targetProxy = D8C4EC892E38AD210003E20D /* PBXContainerItemProxy */;
-		};
-		D8C4EC942E38AD210003E20D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D8C4EC772E38AD1D0003E20D /* DailyBread */;
-			targetProxy = D8C4EC932E38AD210003E20D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D8C4EC9A2E38AD210003E20D /* Debug */ = {
@@ -508,74 +364,6 @@
 			};
 			name = Release;
 		};
-		D8C4ECA02E38AD210003E20D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBreadTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyBread.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyBread";
-			};
-			name = Debug;
-		};
-		D8C4ECA12E38AD210003E20D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBreadTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyBread.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyBread";
-			};
-			name = Release;
-		};
-		D8C4ECA32E38AD210003E20D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBreadUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DailyBread;
-			};
-			name = Debug;
-		};
-		D8C4ECA42E38AD210003E20D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chef.DailyBreadUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DailyBread;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -593,24 +381,6 @@
 			buildConfigurations = (
 				D8C4EC9D2E38AD210003E20D /* Debug */,
 				D8C4EC9E2E38AD210003E20D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D8C4EC9F2E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBreadTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D8C4ECA02E38AD210003E20D /* Debug */,
-				D8C4ECA12E38AD210003E20D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D8C4ECA22E38AD210003E20D /* Build configuration list for PBXNativeTarget "DailyBreadUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D8C4ECA32E38AD210003E20D /* Debug */,
-				D8C4ECA42E38AD210003E20D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

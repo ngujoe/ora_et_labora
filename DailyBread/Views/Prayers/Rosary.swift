@@ -44,66 +44,78 @@ struct RosaryView: View {
         case friday = "Friday"
         case saturday = "Saturday"
     }
-    
+
     struct MysteryDetail: Identifiable {
-        let id = UUID()
+        let id: String
         let name: String
+        
+        // Custom initializer to create the formatted ID
+        init(name: String, index: Int) {
+            self.name = name
+            let formattedName = name.lowercased().replacingOccurrences(of: " ", with: "_").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
+            self.id = "\(formattedName)_\(index)"
+        }
     }
 
-    // A struct to represent the entire mystery group, containing the details
     struct RosaryMystery: Identifiable {
         let id = UUID()
-        let groupName: String // e.g., "Joyful Mysteries"
-        let days: [Day]  // e.g., "Mondays and Saturdays"
-        let mysteries: [MysteryDetail] // The sub-variable holding the individual mysteries
+        let groupName: String
+        let days: [Day]
+        let mysteries: [MysteryDetail]
     }
-    
+
+    // Data source for the Rosary Mysteries
     let rosaryMysteries: [RosaryMystery] = [
         RosaryMystery(
             groupName: "Joyful Mysteries",
-            days: [.wednesday,.saturday],
+            days: [.monday, .saturday],
             mysteries: [
-                MysteryDetail(name: "The Annunciation"),
-                MysteryDetail(name: "The Visitation"),
-                MysteryDetail(name: "The Nativity"),
-                MysteryDetail(name: "The Presentation"),
-                MysteryDetail(name: "The Finding of Jesus in the Temple")
+                MysteryDetail(name: "The Annunciation", index: 1),
+                MysteryDetail(name: "The Visitation", index: 2),
+                MysteryDetail(name: "The Nativity", index: 3),
+                MysteryDetail(name: "The Presentation", index: 4),
+                MysteryDetail(name: "The Finding of Jesus in the Temple", index: 5)
             ]
         ),
         RosaryMystery(
             groupName: "Luminous Mysteries",
             days: [.thursday],
             mysteries: [
-                MysteryDetail(name: "The Baptism of Jesus in the Jordan"),
-                MysteryDetail(name: "The Wedding at Cana"),
-                MysteryDetail(name: "The Proclamation of the Kingdom of God"),
-                MysteryDetail(name: "The Transfiguration"),
-                MysteryDetail(name: "The Institution of the Eucharist")
+                MysteryDetail(name: "The Baptism of Jesus in the Jordan", index: 1),
+                MysteryDetail(name: "The Wedding at Cana", index: 2),
+                MysteryDetail(name: "The Proclamation of the Kingdom of God", index: 3),
+                MysteryDetail(name: "The Transfiguration", index: 4),
+                MysteryDetail(name: "The Institution of the Eucharist", index: 5)
             ]
         ),
         RosaryMystery(
             groupName: "Sorrowful Mysteries",
-            days: [.tuesday,.friday],
+            days: [.tuesday, .friday],
             mysteries: [
-                MysteryDetail(name: "The Agony in the Garden"),
-                MysteryDetail(name: "The Scourging at the Pillar"),
-                MysteryDetail(name: "The Crowning with Thorns"),
-                MysteryDetail(name: "The Carrying of the Cross"),
-                MysteryDetail(name: "The Crucifixion")
+                MysteryDetail(name: "The Agony in the Garden", index: 1),
+                MysteryDetail(name: "The Scourging at the Pillar", index: 2),
+                MysteryDetail(name: "The Crowning with Thorns", index: 3),
+                MysteryDetail(name: "The Carrying of the Cross", index: 4),
+                MysteryDetail(name: "The Crucifixion", index: 5)
             ]
         ),
         RosaryMystery(
             groupName: "Glorious Mysteries",
-            days: [.wednesday,.sunday],
+            days: [.sunday, .wednesday], // Corrected the days to include Sunday
             mysteries: [
-                MysteryDetail(name: "The Resurrection"),
-                MysteryDetail(name: "The Ascension"),
-                MysteryDetail(name: "The Descent of the Holy Spirit (Pentecost)"),
-                MysteryDetail(name: "The Assumption of Mary"),
-                MysteryDetail(name: "The Coronation of Mary")
+                MysteryDetail(name: "The Resurrection", index: 1),
+                MysteryDetail(name: "The Ascension", index: 2),
+                MysteryDetail(name: "The Descent of the Holy Spirit (Pentecost)", index: 3),
+                MysteryDetail(name: "The Assumption of Mary", index: 4),
+                MysteryDetail(name: "The Coronation of Mary", index: 5)
             ]
         )
     ]
+
+    // Function to get the mysteries for a given day
+    func getMysteries(for day: Day) -> RosaryMystery? {
+        return rosaryMysteries.first { $0.days.contains(day) }
+    }
     
     let rosarySections = [
         RosarySection(title: "Beginning", index: 0),
@@ -115,7 +127,59 @@ struct RosaryView: View {
         RosarySection(title: "5th Mystery", index: 63),
         RosarySection(title: "Hail Holy Queen", index: 77)
     ]
+    
 
+    func prayerView(for prayer: Prayer) -> some View {
+        // A Group is used to return a single View from the function
+        Group {
+            if prayer.id.contains("hail_mary") && prayer.id.contains("opening") {
+                let components = prayer.id.split(separator: "_")
+                
+                if let lastComponent = components.last, let number = Int(lastComponent) {
+                    let numberOfPrayers = 3 // Assuming you want to show 3 filled circles
+                    
+                    HStack {
+                        // Show filled circles for completed prayers
+                        ForEach(1...number, id: \.self) { _ in
+                            Image(systemName: "circle.fill")
+                                .foregroundStyle(.gray)
+                        }
+                        
+                        // Show empty circles for remaining prayers
+                        if numberOfPrayers != number {
+                            ForEach(1...(numberOfPrayers - number), id: \.self) { _ in
+                                Image(systemName: "circle")
+                            }
+                        }
+                    }
+                }
+            } else if prayer.id.contains("hail_mary") && prayer.id.contains("mystery") {
+                let components = prayer.id.split(separator: "_")
+                
+                if let lastComponent = components.last, let number = Int(lastComponent) {
+                    let numberOfPrayers = 10 // Assuming you want to show 3 filled circles
+                    
+                    HStack {
+                        // Show filled circles for completed prayers
+                        ForEach(1...number, id: \.self) { _ in
+                            Image(systemName: "circle.fill")
+                                .foregroundStyle(.gray)
+                        }
+                        
+                        // Show empty circles for remaining prayers
+                        if numberOfPrayers != number {
+                            ForEach(1...(numberOfPrayers - number), id: \.self) { _ in
+                                Image(systemName: "circle")
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Default view if no condition is met
+                Text(prayer.name)
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -145,17 +209,47 @@ struct RosaryView: View {
                 if let prayer = currentPrayer {
                     VStack(spacing: 20) {
                         Spacer()
-                        Text(prayer.name)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.center)
+                        let today = Day.monday
+                        let todaysMysteries = getMysteries(for: today)
+                        if prayer.id.contains("mystery_title") {
+                            // Safely unwrap the optional 'todaysMysteries'
+                            if let todaysMysteries = todaysMysteries {
+                                // Now you can safely access 'groupName' and 'mysteries'
+                                let components = prayer.id.split(separator: "_")
+                                
+                                // Safely get the last component and convert it to an integer.
+                                if let lastComponent = components.last, let number = Int(lastComponent) {
+                                    Text("The \(todaysMysteries.groupName):\n \(todaysMysteries.mysteries[number - 1].name)")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                        .multilineTextAlignment(.center)
+                                }
+                            } else {
+                                // Handle the case where there are no mysteries for the day
+                                Text("No mysteries found for today.")
+                            }
+                        } else {
+                            Text(prayer.name)
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                        }
+                        prayerView(for: prayer)
+                        /*
                         if prayer.id.contains("hail_mary") && prayer.id.contains("opening"){
                             let components = prayer.id.split(separator: "_")
                             
                             // Safely get the last component and convert it to an integer.
                             if let lastComponent = components.last, let number = Int(lastComponent) {
-                                Text("\(number)/3")
-                                    .font(.title3)
+                                let numberOfPrayers = 3
+                                HStack{
+                                    ForEach(1...number, id: \.self) { _ in
+                                        Image(systemName: "circle.fill")
+                                    }
+                                    ForEach(0...(number - numberOfPrayers), id: \.self) { _ in
+                                            Image(systemName: "circle")
+                                    }
+                                }
                             }
                         } else if prayer.id.contains("hail_mary") && prayer.id.contains("mystery"){
                             let components = prayer.id.split(separator: "_")
@@ -166,11 +260,16 @@ struct RosaryView: View {
                                     .font(.title3)
                             }
                         }
-                        ScrollView{
-                            Text(prayer.text)
-                                .font(.system(size: 20 * appSettings.fontScale))
-                                .multilineTextAlignment(.center)
-                                .padding()
+                        */
+                        if prayer.id.contains("mystery_title") {
+                            Spacer()
+                        } else{
+                            ScrollView{
+                                Text(prayer.text)
+                                    .font(.system(size: 20 * appSettings.fontScale))
+                                    .multilineTextAlignment(.center)
+                                    .padding()
+                            }
                         }
                     }
                     .padding()
