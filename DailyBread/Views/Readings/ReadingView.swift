@@ -153,13 +153,13 @@ struct ReadingView: View {
                             HStack{
                                 Text("Mass Readings")
                                     .font(.title2)
-                                    .foregroundStyle(.black)
+                                    .foregroundStyle(colorScheme == .dark ? .white : .black)
                                     .fontWeight(.bold)
                                 Image(systemName: "chevron.down")
                                     .resizable()
                                     .bold()
                                     .frame(width: 16, height: 8)
-                                    .foregroundStyle(.black)
+                                    .foregroundStyle(colorScheme == .dark ? .white : .black)
                                     .rotationEffect(.degrees(rotation))
                                     .animation(.easeInOut(duration: 0.5), value: rotation)
 
@@ -203,6 +203,8 @@ struct ReadingView: View {
         let title: String
         let action: () -> Void
         
+        @Environment(\.colorScheme) var colorScheme
+        
         var body: some View {
             
             let displayTitle = title == "Responsorial Psalm" ? "Res. Psalm" : title
@@ -215,7 +217,7 @@ struct ReadingView: View {
                     .padding(.vertical, 5)
                     .background(
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.gray.opacity(0.2))
+                            .fill(colorScheme == .dark ? .white.opacity(0.2) : .gray.opacity(0.2))
                     )
             }
         }

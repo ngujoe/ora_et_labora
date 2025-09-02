@@ -18,13 +18,25 @@ struct SettingsView: View {
                 Form { // Settings Form
                     Section(header: Text("Personal Settings").font(.headline)) {
                         Toggle("Dark Mode", isOn: $settings.isDarkMode)
-                        Toggle("New Catholic Mode", isOn: $settings.isNewCatMode)
+                        Toggle("Mass Assistance", isOn: $settings.isNewCatMode)
                         NavigationLink("Font Size"){
                             AdjustFontView()
                         }
                         Toggle("Format Daily Readings", isOn: $settings.formatReadings)
                     }
                     Section(header: Text("Data Policies").font(.headline)) {
+                        NavigationLink("FAQ"){
+                            Link("Please visit our FAQ page here.", destination: URL(string: "https://www.oraandlabora.org/")!)
+                                .padding()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20.0)
+                                        .fill(settings.isDarkMode ? .gray : .white)
+                                        .opacity(0.50)
+                                        .shadow(radius: 10.0)
+                                        .padding(10)
+                                )
+                        }
                         NavigationLink("Privacy Policy"){
                             Link("Please visit our Privacy Policy here.", destination: URL(string: "https://www.oraandlabora.org/privacy-policy")!)
                                 .padding()
