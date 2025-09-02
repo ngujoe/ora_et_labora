@@ -140,9 +140,10 @@ struct RosaryView: View {
                     
                     HStack {
                         // Show filled circles for completed prayers
-                        ForEach(1...number, id: \.self) { _ in
+                        ForEach(1...number, id: \.self) { i in
                             Image(systemName: "circle.fill")
                                 .foregroundStyle(.gray)
+                                .font(i == number ? .title : .body)
                         }
                         
                         // Show empty circles for remaining prayers
@@ -161,9 +162,10 @@ struct RosaryView: View {
                     
                     HStack {
                         // Show filled circles for completed prayers
-                        ForEach(1...number, id: \.self) { _ in
+                        ForEach(1...number, id: \.self) { i in
                             Image(systemName: "circle.fill")
                                 .foregroundStyle(.gray)
+                                .font(i == number ? .title : .body)
                         }
                         
                         // Show empty circles for remaining prayers
@@ -209,12 +211,8 @@ struct RosaryView: View {
                         let today = Day.monday
                         let todaysMysteries = getMysteries(for: today)
                         if prayer.id.contains("mystery_title") {
-                            // Safely unwrap the optional 'todaysMysteries'
                             if let todaysMysteries = todaysMysteries {
-                                // Now you can safely access 'groupName' and 'mysteries'
                                 let components = prayer.id.split(separator: "_")
-                                
-                                // Safely get the last component and convert it to an integer.
                                 if let lastComponent = components.last, let number = Int(lastComponent) {
                                     Text("The \(todaysMysteries.groupName):\n \(todaysMysteries.mysteries[number - 1].name)")
                                         .font(.title)
@@ -222,7 +220,6 @@ struct RosaryView: View {
                                         .multilineTextAlignment(.center)
                                 }
                             } else {
-                                // Handle the case where there are no mysteries for the day
                                 Text("No mysteries found for today.")
                             }
                         } else {
@@ -232,32 +229,6 @@ struct RosaryView: View {
                                 .multilineTextAlignment(.center)
                         }
                         prayerView(for: prayer)
-                        /*
-                        if prayer.id.contains("hail_mary") && prayer.id.contains("opening"){
-                            let components = prayer.id.split(separator: "_")
-                            
-                            // Safely get the last component and convert it to an integer.
-                            if let lastComponent = components.last, let number = Int(lastComponent) {
-                                let numberOfPrayers = 3
-                                HStack{
-                                    ForEach(1...number, id: \.self) { _ in
-                                        Image(systemName: "circle.fill")
-                                    }
-                                    ForEach(0...(number - numberOfPrayers), id: \.self) { _ in
-                                            Image(systemName: "circle")
-                                    }
-                                }
-                            }
-                        } else if prayer.id.contains("hail_mary") && prayer.id.contains("mystery"){
-                            let components = prayer.id.split(separator: "_")
-                            
-                            // Safely get the last component and convert it to an integer.
-                            if let lastComponent = components.last, let number = Int(lastComponent) {
-                                Text("\(number)/10")
-                                    .font(.title3)
-                            }
-                        }
-                        */
                         if prayer.id.contains("mystery_title") {
                             Spacer()
                         } else{
@@ -288,19 +259,16 @@ struct RosaryView: View {
                 
                 HStack {
                     Spacer()
-                    // Previous button
                     Button(action: previousPrayer) {
                         Image(systemName: "arrow.left.circle.fill")
                             .font(.system(size: 80))
                             .foregroundColor(currentPrayerIndex == 0 ? .gray : .blue)
                     }
                     .padding(.horizontal)
-                    // Disable the button if it's the first prayer
                     .disabled(currentPrayerIndex == 0)
                     
                     Spacer()
                     
-                    // Next button
                     Button(action: nextPrayer) {
                         Image(systemName: "arrow.right.circle.fill")
                             .font(.system(size: 80))
@@ -317,21 +285,18 @@ struct RosaryView: View {
         .onAppear(perform: loadPrayers)
     }
     
-    // Function to move to the next prayer
     func nextPrayer() {
         if currentPrayerIndex < prayers.count - 1 {
             currentPrayerIndex += 1
         }
     }
     
-    // Function to move to the previous prayer
     func previousPrayer() {
         if currentPrayerIndex > 0 {
             currentPrayerIndex -= 1
         }
     }
     
-    // Function to load prayers from JSON
     func loadPrayers() {
         if let url = Bundle.main.url(forResource: "rosary", withExtension: "json") {
             do {
