@@ -118,7 +118,7 @@ struct RosaryView: View {
     }
     
     let rosarySections = [
-        RosarySection(title: "Beginning", index: 0),
+        RosarySection(title: "Opening", index: 0),
         RosarySection(title: "Apostles Creed", index: 1),
         RosarySection(title: "1st Mystery", index: 7),
         RosarySection(title: "2nd Mystery", index: 21),
@@ -174,9 +174,6 @@ struct RosaryView: View {
                         }
                     }
                 }
-            } else {
-                // Default view if no condition is met
-                Text(prayer.name)
             }
         }
     }
@@ -293,7 +290,7 @@ struct RosaryView: View {
                     Spacer()
                     // Previous button
                     Button(action: previousPrayer) {
-                        Image(systemName: "minus.circle.fill")
+                        Image(systemName: "arrow.left.circle.fill")
                             .font(.system(size: 80))
                             .foregroundColor(currentPrayerIndex == 0 ? .gray : .blue)
                     }
@@ -305,7 +302,7 @@ struct RosaryView: View {
                     
                     // Next button
                     Button(action: nextPrayer) {
-                        Image(systemName: "plus.circle.fill")
+                        Image(systemName: "arrow.right.circle.fill")
                             .font(.system(size: 80))
                             .foregroundColor(currentPrayerIndex == prayers.count - 1 ? .gray : .blue)
                     }

@@ -16,22 +16,27 @@ struct SettingsView: View {
         ZStack (alignment: .bottom){
             NavigationStack{
                 Form { // Settings Form
-                    Toggle("Dark Mode", isOn: $settings.isDarkMode)
-                    Toggle("New Catholic Mode", isOn: $settings.isNewCatMode)
-                    NavigationLink("Font Size"){
-                        AdjustFontView()
+                    Section(header: Text("Personal Settings").font(.headline)) {
+                        Toggle("Dark Mode", isOn: $settings.isDarkMode)
+                        Toggle("New Catholic Mode", isOn: $settings.isNewCatMode)
+                        NavigationLink("Font Size"){
+                            AdjustFontView()
+                        }
+                        Toggle("Format Daily Readings", isOn: $settings.formatReadings)
                     }
-                    NavigationLink("Privacy Policy"){
-                        Link("Please visit our Privacy Policy here.", destination: URL(string: "https://www.oraandlabora.org/privacy-policy")!)
-                            .padding()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(
-                                RoundedRectangle(cornerRadius: 20.0)
-                                    .fill(settings.isDarkMode ? .gray : .white)
-                                    .opacity(0.50)
-                                    .shadow(radius: 10.0)
-                                    .padding(10)
-                            )
+                    Section(header: Text("Data Policies").font(.headline)) {
+                        NavigationLink("Privacy Policy"){
+                            Link("Please visit our Privacy Policy here.", destination: URL(string: "https://www.oraandlabora.org/privacy-policy")!)
+                                .padding()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20.0)
+                                        .fill(settings.isDarkMode ? .gray : .white)
+                                        .opacity(0.50)
+                                        .shadow(radius: 10.0)
+                                        .padding(10)
+                                )
+                        }
                     }
                 }
                 .navigationTitle("Settings")
@@ -116,6 +121,7 @@ class AppSettings: ObservableObject {
     @AppStorage("fontScale") var fontScale: Double = 1.0
     @AppStorage("isDarkMode") var isDarkMode = false
     @AppStorage("isNewCatMode") var isNewCatMode = false
+    @AppStorage("formatReadings") var formatReadings = false
 }
 
 #Preview{

@@ -86,28 +86,33 @@ struct FeedbackView: View {
     }
 
     // A separate view for the feedback form
-    @State private var selection = "Feedback"
-    let fbOptions = ["Feedback", "Question", "Feature Request", "General Inquiry"]
+    @State private var selection = "General Inquiry"
+    let fbOptions = ["General Inquiry", "Question", "Feature Request","Report an Issue"]
     
     private var feedbackForm: some View {
         VStack {
-            Text("We'd love to hear from you! 😊")
+            Text("We'd love to hear from you!")
                 .font(.headline)
                 .padding(.bottom)
             VStack {
+                Text("Type of Feedback:")
                         Picker("Select a paint color", selection: $selection) {
                             ForEach(fbOptions, id: \.self) {
                                 Text($0)
                             }
                         }
-                        //.pickerStyle(.menu)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color.gray)
+                                .opacity(0.5)
+                        )
                     }
+                .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)
                         .fill(Color.gray)
                         .opacity(0.1)
                 )
-                .padding(.horizontal)
 
             TextField("Name (optional)", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -202,7 +207,7 @@ struct FeedbackView: View {
                 // Show the thank you view instead of closing the form
                 withAnimation {
                     self.viewMode = .thankYou
-                    selection = "Feedback" // Resets feedback selection
+                    selection = "General Inquiry" // Resets feedback selection
                 }
             }
         }

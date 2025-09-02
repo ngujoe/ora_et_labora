@@ -81,7 +81,7 @@ struct AllPrayersView: View {
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .padding(.horizontal,10)
-                    Text("Prayer Catalog")
+                    Text("Prayer Archive")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.black)
@@ -93,7 +93,7 @@ struct AllPrayersView: View {
             .frame(maxWidth: .infinity, maxHeight: 200)
             Spacer()
                 .padding()
-                .navigationTitle("Prayer")
+                .navigationTitle("Prayer Library")
         }
         }
     }

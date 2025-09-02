@@ -37,7 +37,7 @@ struct ReadingView: View {
                                     else {
                                         if !readings.isEmpty{
                                             ForEach(readings) { reading in
-                                                ReadingSectionView(title: reading.title, passage: reading.passage, content: reading.content)
+                                                ReadingSectionView(title: reading.title, passage: reading.passage, content: reading.content, contentFormat: reading.contentFormat)
                                             }
                                             Link("Read the readings online here.", destination: URL(string: "https://bible.usccb.org/daily-bible-reading")!)
                                                 .padding() // Add some padding so the text isn't on the edges
@@ -281,10 +281,16 @@ struct ReadingView: View {
                     let title = try block.select("h3.name").text()
                     let passage = try block.select("div.address").text()
                     let contentHtml = try block.select("div.content-body").html()
+                    
                     let content = try SwiftSoup.parse(contentHtml.replacingOccurrences(of: "<br>", with: "\n")).text()
-
+                    
+                    let contentWithBreaks = contentHtml.replacingOccurrences(of: "  ", with: " ").replacingOccurrences(of: "<br /> <br />  </p>", with: "").replacingOccurrences(of: "R.", with: "\nR.").replacingOccurrences(of: "</span>", with: "\n").replacingOccurrences(of: "<span>", with: "\n").replacingOccurrences(of: "<br /> ", with: "\n").replacingOccurrences(of: "<br />", with: "\n").replacingOccurrences(of: "<p>", with: "").replacingOccurrences(of: "</p>", with: "").replacingOccurrences(of: "<strong>", with: "").replacingOccurrences(of: "</strong>", with: "\n").replacingOccurrences(of: "</em>", with: "\n").replacingOccurrences(of: "<em>", with: "\n")
+                    
+                    
+                    print ("\(title): \(passage): \(content)")
+                    print ("\(title): \(passage): \(contentWithBreaks)")
                     if title.contains("Reading") || title.contains("Psalm") || title.contains("Gospel") {
-                        fetchedReadings.append(Reading(title: title, passage: passage, content: content))
+                        fetchedReadings.append(Reading(title: title, passage: passage, content: content, contentFormat:contentWithBreaks))
                     }
                 }
 
@@ -307,18 +313,22 @@ struct ReadingSectionView: View {
     let title: String
     let passage: String
     let content: String
+    let contentFormat: String
     
     // TODO: Enable this when ready to launch since it crashes the preview
     @EnvironmentObject var settings: AppSettings
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.fontScaleFactor) var fontScale
     
+    
     var body: some View {
         
         
+
         
         let updatedContent = title == "Responsorial Psalm" ? content.formattedResponsorialPsalm() : content
-        ZStack {
+        let readingContenetToggled = settings.formatReadings ? contentFormat : updatedContent
+        //ZStack {
             /*
             RoundedRectangle(cornerRadius: 20.0)
                 .fill(colorScheme == .dark ? .gray : .white)
@@ -338,16 +348,19 @@ struct ReadingSectionView: View {
                     .multilineTextAlignment(.leading)
                     .padding(.bottom, 5)
                 gospelBeginning(for: title)
-                Text(updatedContent)
+                Text(readingContenetToggled)
                     .font(.system(size: 20 * fontScale))
                     .multilineTextAlignment(.leading)
                 readingEnd(for: title)
                 Text("Copyright © Confraternity of Christian Doctrine, USCCB")
                     .font(.system(size: 12))
                     .padding(.top, 5)
+                    .multilineTextAlignment(.leading)
             }
+            //.frame(maxWidth: .infinity)
             .padding(30)
-        }
+        //}
+        .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 20.0)
                 .fill(colorScheme == .dark ? .gray : .white)
@@ -454,6 +467,7 @@ struct Reading: Codable, Identifiable {
     let title: String
     let passage: String
     let content: String
+    let contentFormat: String
 }
 
 extension String {
