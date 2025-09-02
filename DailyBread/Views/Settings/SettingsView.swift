@@ -18,11 +18,36 @@ struct SettingsView: View {
                 Form { // Settings Form
                     Section(header: Text("Personal Settings").font(.headline)) {
                         Toggle("Dark Mode", isOn: $settings.isDarkMode)
+                            .onChange(of: settings.isDarkMode) { newValue in
+                                        // Log a custom event with the new state
+                                        AnalyticsManager.shared.logEvent(name: "setting_toggle", parameters: [
+                                            "dark_mode": newValue
+                                        ])
+                                        print("🔔 Dark Mode toggle changed to: \(newValue)")
+                                    }
                         Toggle("Mass Assistance", isOn: $settings.isNewCatMode)
+                            .onChange(of: settings.isNewCatMode) { newValue in
+                                        // Log a custom event with the new state
+                                        AnalyticsManager.shared.logEvent(name: "setting_toggle", parameters: [
+                                            "mass_assistance": newValue
+                                        ])
+                                        print("🔔 Mass Assistance toggle changed to: \(newValue)")
+                                    }
                         NavigationLink("Font Size"){
                             AdjustFontView()
-                        }
+                                .onAppear{
+                                    AnalyticsManager.shared.logScreenView(screenName: "Font Size")
+                                }
+                            }
                         Toggle("Format Daily Readings", isOn: $settings.formatReadings)
+                            .onChange(of: settings.formatReadings) { newValue in
+                                        // Log a custom event with the new state
+                                        AnalyticsManager.shared.logEvent(name: "setting_toggle", parameters: [
+                                            "format_daily_readings": newValue
+                                        ])
+                                        print("🔔 Format Daily Readings toggle changed to: \(newValue)")
+                                    }
+                        
                     }
                     Section(header: Text("Data Policies").font(.headline)) {
                         NavigationLink("FAQ"){

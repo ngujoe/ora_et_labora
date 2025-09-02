@@ -135,6 +135,8 @@ struct FeedbackView: View {
             
             Button(action: {
                 submitFeedback()
+                AnalyticsManager.shared.logEvent(name: "button_tapped", parameters: ["button_name": "feedback_submit_button",
+                                          "view_name": "settings_view"])
             }) {
                 if isSubmitting {
                     ProgressView()

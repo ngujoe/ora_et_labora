@@ -21,6 +21,8 @@ struct RosaryView: View {
     @State private var currentPrayerIndex = 0
     @State private var prayers: [Prayer] = []
     
+    let screenName = "rosary_view"
+    
     // A computed property to get the current prayer
     var currentPrayer: Prayer? {
         if prayers.indices.contains(currentPrayerIndex) {
@@ -189,6 +191,10 @@ struct RosaryView: View {
                         ForEach(rosarySections) { section in
                             Button(section.title) {
                                 currentPrayerIndex = section.index
+                                AnalyticsManager.shared.logEvent(name: "button_tapped", parameters: [
+                                                    "button_name": "rosary_section",
+                                                    "view_name": "rosary_view"
+                                                ])
                             }
                             .foregroundColor(colorScheme == .dark ? .white : .black)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -282,7 +288,13 @@ struct RosaryView: View {
                 .padding()
             }
         }
-        .onAppear(perform: loadPrayers)
+        .onAppear{
+            loadPrayers()
+            AnalyticsManager.shared.logScreenView(screenName: screenName)
+        }
+        .onDisappear{
+            AnalyticsManager.shared.logScreenTime(screenName: screenName)
+        }
     }
     
     func nextPrayer() {

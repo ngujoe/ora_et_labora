@@ -19,6 +19,8 @@ struct ReadingView: View {
     @State private var hasScrolled = false
     @State private var rotation: Double = 0
     
+    let screenName = "daily_readings_view"
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -196,6 +198,10 @@ struct ReadingView: View {
             if !hasScrolled{
                 scrollToID = "Reading 1"
             }
+            AnalyticsManager.shared.logScreenView(screenName: screenName)
+        }
+        .onDisappear {
+            AnalyticsManager.shared.logScreenTime(screenName: screenName)
         }
     }
 
