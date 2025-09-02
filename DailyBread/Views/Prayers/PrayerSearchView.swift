@@ -157,7 +157,7 @@ struct PrayerSearchView: View {
                  }
                  */
             }
-            .navigationTitle("Prayer Catalog")
+            .navigationTitle("Prayer Archive")
             .searchable(text: $searchText, prompt: "Search for a prayer")
             .onAppear {
                 prayerItem = loadPrayers() // Call your data loading function
