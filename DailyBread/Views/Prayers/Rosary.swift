@@ -20,6 +20,7 @@ struct RosaryView: View {
     
     @State private var currentPrayerIndex = 0
     @State private var prayers: [Prayer] = []
+    @State private var todaysMysteries: RosaryMystery?
     
     let screenName = "rosary_view"
     
@@ -69,6 +70,17 @@ struct RosaryView: View {
     // Data source for the Rosary Mysteries
     let rosaryMysteries: [RosaryMystery] = [
         RosaryMystery(
+            groupName: "Glorious Mysteries",
+            days: [.sunday, .wednesday],
+            mysteries: [
+                MysteryDetail(name: "The Resurrection", index: 1),
+                MysteryDetail(name: "The Ascension", index: 2),
+                MysteryDetail(name: "The Descent of the Holy Spirit (Pentecost)", index: 3),
+                MysteryDetail(name: "The Assumption of Mary", index: 4),
+                MysteryDetail(name: "The Coronation of Mary", index: 5)
+            ]
+        ),
+        RosaryMystery(
             groupName: "Joyful Mysteries",
             days: [.monday, .saturday],
             mysteries: [
@@ -100,17 +112,6 @@ struct RosaryView: View {
                 MysteryDetail(name: "The Carrying of the Cross", index: 4),
                 MysteryDetail(name: "The Crucifixion", index: 5)
             ]
-        ),
-        RosaryMystery(
-            groupName: "Glorious Mysteries",
-            days: [.sunday, .wednesday], // Corrected the days to include Sunday
-            mysteries: [
-                MysteryDetail(name: "The Resurrection", index: 1),
-                MysteryDetail(name: "The Ascension", index: 2),
-                MysteryDetail(name: "The Descent of the Holy Spirit (Pentecost)", index: 3),
-                MysteryDetail(name: "The Assumption of Mary", index: 4),
-                MysteryDetail(name: "The Coronation of Mary", index: 5)
-            ]
         )
     ]
 
@@ -132,6 +133,7 @@ struct RosaryView: View {
     
 
     func prayerView(for prayer: Prayer) -> some View {
+        
         // A Group is used to return a single View from the function
         Group {
             if prayer.id.contains("hail_mary") && prayer.id.contains("opening") {
@@ -214,8 +216,6 @@ struct RosaryView: View {
                 if let prayer = currentPrayer {
                     VStack(spacing: 20) {
                         Spacer()
-                        let today = Day.monday
-                        let todaysMysteries = getMysteries(for: today)
                         if prayer.id.contains("mystery_title") {
                             if let todaysMysteries = todaysMysteries {
                                 let components = prayer.id.split(separator: "_")
@@ -288,8 +288,27 @@ struct RosaryView: View {
                 .padding()
             }
         }
+        
         .onAppear{
             loadPrayers()
+            let todayDate = Date()
+            let calendar = Calendar.current
+            let weekday = calendar.component(.weekday, from: todayDate)
+            
+            let today: Day
+            switch weekday {
+            case 1: today = .sunday
+            case 2: today = .monday
+            case 3: today = .tuesday
+            case 4: today = .wednesday
+            case 5: today = .thursday
+            case 6: today = .friday
+            case 7: today = .saturday
+            default: today = .monday
+            }
+            
+            self.todaysMysteries = getMysteries(for: today)
+                        
             AnalyticsManager.shared.logScreenView(screenName: screenName)
         }
         .onDisappear{
