@@ -15,6 +15,7 @@ struct Prayer: Codable, Identifiable {
 }
 
 struct RosaryView: View {
+    
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var appSettings: AppSettings
     
@@ -188,6 +189,10 @@ struct RosaryView: View {
     
     var body: some View {
         ZStack {
+            
+            //Color(hex: "F7F79C")
+                //.edgesIgnoringSafeArea(.all)
+            
             VStack {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
