@@ -165,6 +165,7 @@ struct RosaryView: View {
                     let numberOfPrayers = 10 // Assuming you want to show 3 filled circles
                     
                     HStack {
+                        Spacer()
                         // Show filled circles for completed prayers
                         ForEach(1...number, id: \.self) { i in
                             Image(systemName: "circle.fill")
@@ -178,6 +179,7 @@ struct RosaryView: View {
                                 Image(systemName: "circle")
                             }
                         }
+                        Spacer()
                     }
                 }
             }
