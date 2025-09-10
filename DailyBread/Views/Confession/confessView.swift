@@ -118,6 +118,11 @@ struct confessQuest: View {
                 }
                 .padding()
             }
+            VStack{
+                NavigationLink(destination: reflectView()){
+                    Text("Reflect")
+                }
+            }
         }
         .navigationTitle("Confession")
         .onAppear {
