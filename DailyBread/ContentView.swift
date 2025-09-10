@@ -32,6 +32,13 @@ struct ContentView: View {
                     Image(systemName: "book.closed")
                     Text("Prayer")
                 }
+            
+            confessQuest()
+                .tabItem {
+                    Image(systemName: "cross.case")
+                    Text("Confession")
+                }
+            
             /*
             GabeView()
                 .tabItem {

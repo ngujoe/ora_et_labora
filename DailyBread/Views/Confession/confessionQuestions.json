@@ -1,0 +1,194 @@
+[
+  {
+    "question": "Have I put anything before God? (e.g., money, success, a relationship)",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I doubted God's love or mercy?",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I neglected prayer or my relationship with God?",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I used God's name in vain or cursed?",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I honored God on the Sabbath by attending Mass and resting?",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I acted in a way that caused harm to others, either physically or emotionally?",
+    "categories": [
+      "universal",
+      "parent",
+      "student",
+      "spouse_partner",
+      "employee_professional"
+    ]
+  },
+  {
+    "question": "Have I been angry, resentful, or unforgiving towards anyone?",
+    "categories": [
+      "universal",
+      "parent",
+      "student",
+      "spouse_partner",
+      "employee_professional"
+    ]
+  },
+  {
+    "question": "Have I committed adultery or been unfaithful to my spouse?",
+    "categories": [
+      "spouse_partner"
+    ]
+  },
+  {
+    "question": "Have I looked at others lustfully or used pornography?",
+    "categories": [
+      "spouse_partner",
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I stolen anything, no matter how small?",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I been envious or jealous of others' possessions or success?",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I lied, gossiped, or slandered another person?",
+    "categories": [
+      "universal",
+      "student",
+      "employee_professional"
+    ]
+  },
+  {
+    "question": "Have I been honest in my work and with my finances?",
+    "categories": [
+      "universal",
+      "employee_professional"
+    ]
+  },
+  {
+    "question": "Have I wasted my time or talents, or neglected my duties at home, work, or school?",
+    "categories": [
+      "universal",
+      "student",
+      "employee_professional"
+    ]
+  },
+  {
+    "question": "Have I been prideful, arrogant, or selfish?",
+    "categories": [
+      "universal",
+      "parent",
+      "spouse_partner"
+    ]
+  },
+  {
+    "question": "Have I been unkind in my thoughts, words, or actions toward others?",
+    "categories": [
+      "universal",
+      "parent",
+      "spouse_partner",
+      "student",
+      "employee_professional"
+    ]
+  },
+  {
+    "question": "Have I been a good friend, spouse, parent, or child?",
+    "categories": [
+      "parent",
+      "spouse_partner",
+      "adult"
+    ]
+  },
+  {
+    "question": "Have I been patient and kind?",
+    "categories": [
+      "universal",
+      "parent",
+      "spouse_partner"
+    ]
+  },
+  {
+    "question": "Have I held on to grudges or refused to forgive others?",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I failed to love my neighbor as myself?",
+    "categories": [
+      "universal"
+    ]
+  },
+  {
+    "question": "Have I been disobedient or disrespectful to my parents?",
+    "categories": [
+      "adult"
+    ]
+  },
+  {
+    "question": "Have I been ungrateful for my parents' sacrifices or love?",
+    "categories": [
+      "adult"
+    ]
+  },
+  {
+    "question": "Have I been attentive to my parents' needs, especially as they grow older?",
+    "categories": [
+      "adult"
+    ]
+  },
+  {
+    "question": "Have I been lazy or apathetic in my studies or homework?",
+    "categories": [
+      "student"
+    ]
+  },
+  {
+    "question": "Have I been a good witness to my faith in the workplace?",
+    "categories": [
+      "employee_professional"
+    ]
+  },
+  {
+    "question": "Have I disciplined my children justly and out of love, not anger?",
+    "categories": [
+      "parent"
+    ]
+  },
+  {
+    "question": "Have I been selfish with my time, resources, or affections?",
+    "categories": [
+      "spouse_partner"
+    ]
+  },
+  {
+    "question": "Have I been honest in my work and with my finances?",
+    "categories": [
+      "employee_professional"
+    ]
+  }
+]

@@ -195,9 +195,9 @@ struct ReadingView: View {
         }
         .onAppear(){
             fetchReadings(for: selectedDate)
-            if !hasScrolled{
-                scrollToID = "Reading 1"
-            }
+            //if !hasScrolled{
+             //   scrollToID = "Reading 1"
+            //}
             AnalyticsManager.shared.logScreenView(screenName: screenName)
         }
         .onDisappear {
