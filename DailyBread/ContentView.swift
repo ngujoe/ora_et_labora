@@ -33,7 +33,7 @@ struct ContentView: View {
                     Text("Prayer")
                 }
             
-            confessQuest()
+            ThreePartProcessView()
                 .tabItem {
                     Image(systemName: "cross.case")
                     Text("Confession")
