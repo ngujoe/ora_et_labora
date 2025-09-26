@@ -10,6 +10,7 @@ import SwiftUI
 struct ThreePartProcessView: View {
     @State private var currentStep: Int = 0
     @State private var selectedQuestions: [String] = []
+    @State private var notes: String = ""
 
     private let totalSteps = 3
     
@@ -48,9 +49,9 @@ struct ThreePartProcessView: View {
                 if currentStep == 0 {
                     ReviewQuestionsView(selectedQuestions: $selectedQuestions)
                 } else if currentStep == 1 {
-                    ReflectView(selectedQuestions: $selectedQuestions)
+                    ReflectView(selectedQuestions: $selectedQuestions, notes: $notes)
                 } else {
-                    ConfessView(selectedQuestions: $selectedQuestions)
+                    ConfessView(notes: $notes)
                 }
             }
             // Navigation Buttons

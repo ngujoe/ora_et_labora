@@ -11,7 +11,7 @@ struct ReflectView: View {
     // This will receive the selected questions, but we need to
     // modify its type to be a binding to save a state
     @Binding var selectedQuestions: [String]
-    @State private var notes: String = "" // State for the notes TextEditor
+    @Binding var notes: String // State for the notes TextEditor
     
     // A key for UserDefaults to save the notes
     private let notesKey = "ReflectionNotes"
