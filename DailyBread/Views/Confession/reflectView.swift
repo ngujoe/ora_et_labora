@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct ReflectView: View {
-    // This will receive the selected questions, but we need to
-    // modify its type to be a binding to save a state
     @Binding var selectedQuestions: [String]
-    @Binding var notes: String // State for the notes TextEditor
-    
-    // A key for UserDefaults to save the notes
-    private let notesKey = "ReflectionNotes"
+    @Binding var notes: String
 
     var body: some View {
         VStack {
@@ -23,11 +18,10 @@ struct ReflectView: View {
                 .fontWeight(.bold)
                 .padding(.bottom)
 
-            // Section for selected questions
             Text("Selected Questions:")
                 .font(.headline)
                 .padding(.horizontal)
-            
+
             if selectedQuestions.isEmpty {
                 Text("No questions selected for reflection.")
                     .foregroundColor(.secondary)
@@ -39,19 +33,18 @@ struct ReflectView: View {
                             .padding(.vertical, 2)
                     }
                 }
-                .frame(maxHeight: 200) // Give the list a fixed height to make it scrollable
+                .frame(maxHeight: 200)
                 .cornerRadius(10)
                 .padding(.horizontal)
             }
 
-            // Section for notes
             Text("Your Notes:")
                 .font(.headline)
                 .padding(.horizontal)
                 .padding(.top)
 
             TextEditor(text: $notes)
-                .frame(minHeight: 150) // Give the TextEditor a minimum height
+                .frame(minHeight: 150)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.gray.opacity(0.4), lineWidth: 1)
@@ -59,27 +52,7 @@ struct ReflectView: View {
                 .padding(.horizontal)
                 .padding(.bottom)
 
-            Spacer() // Pushes content to the top
+            Spacer()
         }
-        .onAppear {
-            // Load notes from cache when the view appears
-            loadNotes()
-        }
-        .onDisappear {
-            // Save notes to cache when the view disappears
-            saveNotes()
-        }
-    }
-
-    // Function to load notes from UserDefaults
-    private func loadNotes() {
-        if let savedNotes = UserDefaults.standard.string(forKey: notesKey) {
-            notes = savedNotes
-        }
-    }
-
-    // Function to save notes to UserDefaults
-    private func saveNotes() {
-        UserDefaults.standard.set(notes, forKey: notesKey)
     }
 }

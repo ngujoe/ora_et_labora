@@ -9,219 +9,150 @@ import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
 
-struct FeedbackFormWrapper: View {
-    @Binding var showFeedbackForm: Bool // Use a binding to control the parent's state
-
-    var body: some View {
-        VStack {
-            Spacer()
-            // The FeedbackView is centered in the wrapper
-            FeedbackView(isPresented: $showFeedbackForm)
-                .frame(maxWidth: .infinity) // Adjust size as needed
-                .padding(5)
-            Spacer()
-        }
-        .background(Color.black.opacity(0.4).ignoresSafeArea())
-        .onTapGesture {
-            // Tapping outside the form closes it
-            withAnimation {
-                self.showFeedbackForm = false
-            }
-        }
-    }
-}
-
 struct FeedbackView: View {
     @Binding var isPresented: Bool
+
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var feedback: String = ""
-    @State private var isSubmitting: Bool = false
-    @State private var showAlert: Bool = false
-    @State private var alertMessage: String = ""
-    
-    @Environment(\.colorScheme) var colorScheme
-
-    // An enum to manage the different view states
-    enum ViewMode {
-        case form, thankYou
-    }
-
+    @State private var selection = "General Inquiry"
+    @State private var isSubmitting = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     @State private var viewMode: ViewMode = .form
 
+    enum ViewMode { case form, thankYou }
+
+    let fbOptions = ["General Inquiry", "Question", "Feature Request", "Report an Issue"]
+
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    withAnimation {
-                        self.isPresented = false
-                    }
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title)
-                        .foregroundColor(.gray)
+        NavigationStack {
+            Group {
+                switch viewMode {
+                case .form:
+                    formView
+                case .thankYou:
+                    thankYouView
                 }
             }
-            .padding(.top)
-            
-            // Switch between the form and thank you view
-            switch viewMode {
-            case .form:
-                feedbackForm
-            case .thankYou:
-                thankYouView
+            .navigationTitle("Send Feedback")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Close") { dismiss() }
+                }
             }
         }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 20.0)
-                .fill(colorScheme == .dark ? .gray : .white)
-                .shadow(radius: 10.0)
-                .padding(10)
-        )
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text("Submission Status"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        .alert("Submission Status", isPresented: $showAlert) {
+            Button("OK") {}
+        } message: {
+            Text(alertMessage)
         }
     }
 
-    // A separate view for the feedback form
-    @State private var selection = "General Inquiry"
-    let fbOptions = ["General Inquiry", "Question", "Feature Request","Report an Issue"]
-    
-    private var feedbackForm: some View {
-        VStack {
-            Text("We'd love to hear from you!")
-                .font(.headline)
-                .padding(.bottom)
-            VStack {
-                Text("Type of Feedback:")
-                        Picker("Select a paint color", selection: $selection) {
-                            ForEach(fbOptions, id: \.self) {
-                                Text($0)
-                            }
+    private var formView: some View {
+        Form {
+            Section("Type of Feedback") {
+                Picker("Category", selection: $selection) {
+                    ForEach(fbOptions, id: \.self) { Text($0) }
+                }
+                .pickerStyle(.menu)
+            }
+
+            Section("Your Details (optional)") {
+                TextField("Name", text: $name)
+                    .textContentType(.name)
+                    .autocorrectionDisabled()
+                TextField("Email", text: $email)
+                    .keyboardType(.emailAddress)
+                    .textContentType(.emailAddress)
+                    .autocapitalization(.none)
+            }
+
+            Section("Message") {
+                TextEditor(text: $feedback)
+                    .frame(minHeight: 120)
+            }
+
+            Section {
+                Button {
+                    submitFeedback()
+                    AnalyticsManager.shared.logEvent(name: "button_tapped", parameters: [
+                        "button_name": "feedback_submit_button",
+                        "view_name": "settings_view"
+                    ])
+                } label: {
+                    if isSubmitting {
+                        HStack {
+                            ProgressView().progressViewStyle(.circular)
+                            Text("Submitting…")
                         }
-                        .background(
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.gray)
-                                .opacity(0.5)
-                        )
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    } else {
+                        Text("Submit")
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .foregroundStyle(feedback.isEmpty ? Color.secondary : Color.blue)
                     }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.gray)
-                        .opacity(0.1)
-                )
-
-            TextField("Name (optional)", text: $name)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .autocapitalization(.words)
-                .padding(.horizontal)
-
-            TextField("Email (optional)", text: $email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.emailAddress)
-                .autocapitalization(.none)
-                .padding(.horizontal)
-
-            TextEditor(text: $feedback)
-                .frame(height: 150)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
-                .padding(.horizontal)
-            
-            Button(action: {
-                submitFeedback()
-                AnalyticsManager.shared.logEvent(name: "button_tapped", parameters: ["button_name": "feedback_submit_button",
-                                          "view_name": "settings_view"])
-            }) {
-                if isSubmitting {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                } else {
-                    Text("Submit")
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(feedback.isEmpty ? Color.gray : Color.blue)
-                        .cornerRadius(10)
                 }
+                .disabled(feedback.isEmpty || isSubmitting)
             }
-            .disabled(feedback.isEmpty || isSubmitting)
-            .padding()
         }
     }
 
-    // A separate view for the thank you message
     private var thankYouView: some View {
-        VStack {
-            Text("Thank You for Your Feedback! 🙏")
-                .font(.title2)
-                .padding(.bottom, 20)
-            
-            Text("We appreciate you taking the time to help us improve.")
-                .font(.body)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 30)
+        VStack(spacing: 20) {
+            Spacer()
 
-            Button(action: {
-                resetForm()
-            }) {
-                Text("Submit New Feedback")
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+            Image(systemName: "checkmark.circle.fill")
+                .font(.system(size: 72))
+                .foregroundStyle(Color.blue)
+
+            VStack(spacing: 8) {
+                Text("Thank You!")
+                    .font(.title.bold())
+                Text("We appreciate you taking the time\nto help us improve.")
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
+
+            Button("Submit Another") { resetForm() }
+                .buttonStyle(.borderedProminent)
+                .padding(.top, 8)
+
+            Spacer()
         }
-        .padding(.horizontal)
-        .padding(.bottom)
+        .padding(.horizontal, 32)
     }
 
     private func submitFeedback() {
-        self.isSubmitting = true
+        isSubmitting = true
         let db = Firestore.firestore()
-        
         let feedbackData: [String: Any] = [
             "name": name,
             "email": email,
             "feedback": feedback,
             "timestamp": FieldValue.serverTimestamp()
         ]
-        //db.collection("feedback") OLD CREATE FOR SPECIFCALLLY FEEDBACK
         db.collection(selection).addDocument(data: feedbackData) { error in
             self.isSubmitting = false
             if let error = error {
-                print("Error adding document: \(error)")
-                self.alertMessage = "Failed to submit feedback. Please try again."
+                self.alertMessage = "Failed to submit. Please try again."
                 self.showAlert = true
+                print("Feedback error: \(error)")
             } else {
-                print("Document successfully written!")
-                // Show the thank you view instead of closing the form
-                withAnimation {
-                    self.viewMode = .thankYou
-                    selection = "General Inquiry" // Resets feedback selection
-                }
+                withAnimation { self.viewMode = .thankYou }
             }
         }
     }
 
     private func resetForm() {
-        // Reset all form fields and switch back to the form view
         name = ""
         email = ""
         feedback = ""
-        withAnimation {
-            self.viewMode = .form
-        }
+        selection = "General Inquiry"
+        withAnimation { viewMode = .form }
     }
 }

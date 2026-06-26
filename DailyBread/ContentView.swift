@@ -13,46 +13,28 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            /*
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-             */
-            
             DailyReadingsView()
                 .tabItem {
-                    Image(systemName: "book.fill")
-                    Text("Readings")
+                    Label("Readings", systemImage: "book.pages.fill")
                 }
-            
+
             AllPrayersView()
                 .tabItem {
-                    Image(systemName: "book.closed")
-                    Text("Prayer")
+                    Label("Prayer", systemImage: "hands.sparkles.fill")
                 }
-            
+
             ThreePartProcessView()
                 .tabItem {
-                    Image(systemName: "cross.case")
-                    Text("Confession")
+                    Label("Confession", systemImage: "heart.circle.fill")
                 }
-            
-            /*
-            GabeView()
-                .tabItem {
-                    Image(systemName: "mic.fill")
-                    Text("Gabe AI")
-                }
-             */
 
             SettingsView()
                 .tabItem {
-                    Image(systemName: "gear")
-                    Text("Settings")
+                    Label("Settings", systemImage: "gearshape.fill")
                 }
         }
+        .tint(.blue)
+        .environment(\.fontScaleFactor, settings.fontScale)
         .preferredColorScheme(settings.isDarkMode ? .dark : .light)
     }
 }

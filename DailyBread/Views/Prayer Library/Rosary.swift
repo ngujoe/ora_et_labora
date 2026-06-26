@@ -22,6 +22,8 @@ struct RosaryView: View {
     @State private var currentPrayerIndex = 0
     @State private var prayers: [Prayer] = []
     @State private var todaysMysteries: RosaryMystery?
+    @State private var selectedMystery: RosaryMystery?
+    @State private var showMysterySelector = false
     
     let screenName = "rosary_view"
     
@@ -188,112 +190,205 @@ struct RosaryView: View {
     }
     
     var body: some View {
-        ZStack {
-            
-            //Color(hex: "F7F79C")
-                //.edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                
+        VStack(spacing: 0) {
+
+            // Mystery selector — collapsed by default, tap row to expand, auto-closes on selection
+            Button {
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                    showMysterySelector.toggle()
+                }
+            } label: {
+                HStack(spacing: 10) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("MYSTERIES")
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                            .tracking(0.6)
+                        Text(selectedMystery?.groupName ?? "None selected")
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(.primary)
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                        .rotationEffect(.degrees(showMysterySelector ? 180 : 0))
+                        .animation(.spring(response: 0.3), value: showMysterySelector)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+
+            if showMysterySelector {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 15) {
-                        ForEach(rosarySections) { section in
-                            Button(section.title) {
-                                currentPrayerIndex = section.index
-                                AnalyticsManager.shared.logEvent(name: "button_tapped", parameters: [
-                                                    "button_name": "rosary_section",
-                                                    "view_name": "rosary_view"
-                                                ])
+                    HStack(spacing: 10) {
+                        ForEach(rosaryMysteries) { mystery in
+                            let isSelected = selectedMystery?.groupName == mystery.groupName
+                            let isToday = todaysMysteries?.groupName == mystery.groupName
+                            Button {
+                                withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
+                                    selectedMystery = mystery
+                                    showMysterySelector = false
+                                }
+                            } label: {
+                                VStack(spacing: 4) {
+                                    Text(mystery.groupName.replacingOccurrences(of: " Mysteries", with: ""))
+                                        .font(.subheadline.weight(isSelected ? .semibold : .regular))
+                                    if isToday {
+                                        Text("Today")
+                                            .font(.caption2.weight(.medium))
+                                            .padding(.horizontal, 6)
+                                            .padding(.vertical, 2)
+                                            .background(Capsule().fill(isSelected ? .white.opacity(0.3) : Color.blue.opacity(0.15)))
+                                    }
+                                }
+                                .foregroundStyle(isSelected ? .white : .primary)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(isSelected ? Color.blue : Color(.secondarySystemBackground)))
                             }
-                            .foregroundColor(colorScheme == .dark ? .white : .black)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 20)
-                            .background(Color.gray.opacity(0.3))
-                            .font(.title2)
-                            .cornerRadius(10)
+                            .buttonStyle(.plain)
                         }
                     }
-                    .padding()
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 10)
                 }
-                
-                Spacer()
-                
-                // Display the current prayer name and text TODO: GET THE Rosary TITLES RIGHT
-                if let prayer = currentPrayer {
-                    VStack(spacing: 20) {
-                        Spacer()
-                        if prayer.id.contains("mystery_title") {
-                            if let todaysMysteries = todaysMysteries {
-                                let components = prayer.id.split(separator: "_")
-                                if let lastComponent = components.last, let number = Int(lastComponent) {
-                                    Text("The \(todaysMysteries.groupName):\n \(todaysMysteries.mysteries[number - 1].name)")
-                                        .font(.title)
-                                        .fontWeight(.bold)
+                .transition(.opacity.combined(with: .move(edge: .top)))
+            }
+
+            // Section jump bar
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(rosarySections) { section in
+                        Button(section.title) {
+                            currentPrayerIndex = section.index
+                            AnalyticsManager.shared.logEvent(name: "button_tapped", parameters: [
+                                "button_name": "rosary_section",
+                                "view_name": "rosary_view"
+                            ])
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(.primary)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 16)
+                        .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 10))
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+            }
+
+            Divider()
+
+            // Prayer card
+            if let prayer = currentPrayer {
+                VStack(spacing: 16) {
+                    // Prayer name / mystery title
+                    if prayer.id.contains("mystery_title") {
+                        if let mystery = selectedMystery {
+                            let components = prayer.id.split(separator: "_")
+                            if let last = components.last, let number = Int(last) {
+                                let ordinals = ["First", "Second", "Third", "Fourth", "Fifth"]
+                                let ordinal = number <= ordinals.count ? ordinals[number - 1] : "\(number)th"
+                                VStack(spacing: 6) {
+                                    Text(mystery.groupName.uppercased())
+                                        .font(.caption.weight(.semibold))
+                                        .foregroundStyle(Color.blue)
+                                        .tracking(0.5)
+                                    Text("The \(ordinal) Mystery")
+                                        .font(.title2.bold())
+                                        .multilineTextAlignment(.center)
+                                    Text(mystery.mysteries[number - 1].name)
+                                        .font(.title3)
+                                        .foregroundStyle(.secondary)
                                         .multilineTextAlignment(.center)
                                 }
-                            } else {
-                                Text("No mysteries found for today.")
                             }
                         } else {
-                            Text(prayer.name)
-                                .font(.title)
-                                .fontWeight(.bold)
+                            Text("Select a mystery set above")
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                        }
+                    } else {
+                        Text(prayer.name)
+                            .font(.title2.bold())
+                            .multilineTextAlignment(.center)
+                    }
+
+                    prayerView(for: prayer)
+
+                    if !prayer.id.contains("mystery_title") {
+                        ScrollView {
+                            Text(prayer.text)
+                                .font(.system(size: 20 * appSettings.fontScale))
+                                .lineSpacing(6)
                                 .multilineTextAlignment(.center)
+                                .padding(.horizontal, 4)
+                                .padding(.bottom, 8)
                         }
-                        prayerView(for: prayer)
-                        if prayer.id.contains("mystery_title") {
-                            Spacer()
-                        } else{
-                            ScrollView{
-                                Text(prayer.text)
-                                    .font(.system(size: 20 * appSettings.fontScale))
-                                    .multilineTextAlignment(.center)
-                                    .padding()
-                            }
-                        }
+                    } else {
+                        Spacer()
                     }
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20.0)
-                            .fill(colorScheme == .dark ? .gray : .white)
-                            .opacity(0.50)
-                            .shadow(radius: 10.0)
-                            .padding(10)
-                    )
-                } else {
-                    Text("Loading prayers...")
-                        .font(.title)
-                        .foregroundColor(.gray)
                 }
-                
+                .padding(24)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color(.systemBackground))
+                        .shadow(color: .black.opacity(0.07), radius: 12, x: 0, y: 4)
+                        .padding(12)
+                )
+            } else {
                 Spacer()
-                
-                HStack {
-                    Spacer()
-                    Button(action: previousPrayer) {
-                        Image(systemName: "arrow.left.circle.fill")
-                            .font(.system(size: 80))
-                            .foregroundColor(currentPrayerIndex == 0 ? .gray : .blue)
-                    }
-                    .padding(.horizontal)
-                    .disabled(currentPrayerIndex == 0)
-                    
-                    Spacer()
-                    
-                    Button(action: nextPrayer) {
-                        Image(systemName: "arrow.right.circle.fill")
-                            .font(.system(size: 80))
-                            .foregroundColor(currentPrayerIndex == prayers.count - 1 ? .gray : .blue)
-                    }
-                    .padding(.horizontal)
-                    // Disable the button if it's the last prayer
-                    .disabled(currentPrayerIndex == prayers.count - 1)
-                    Spacer()
-                }
-                .padding()
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+
+            Divider()
+
+            // Navigation — full-width tap zones for no-look use
+            HStack(spacing: 0) {
+                // Left zone → previous prayer
+                Button(action: previousPrayer) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 28, weight: .semibold))
+                            .foregroundStyle(currentPrayerIndex == 0 ? Color(.quaternaryLabel) : Color.blue)
+                            .padding(.leading, 32)
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .contentShape(Rectangle())
+                }
+                .disabled(currentPrayerIndex == 0)
+                .buttonStyle(.plain)
+
+                // Position counter
+                Text("\(currentPrayerIndex + 1)/\(prayers.count)")
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(.tertiary)
+                    .monospacedDigit()
+                    .frame(width: 52)
+
+                // Right zone → next prayer
+                Button(action: nextPrayer) {
+                    HStack {
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 28, weight: .semibold))
+                            .foregroundStyle(currentPrayerIndex == prayers.count - 1 ? Color(.quaternaryLabel) : Color.blue)
+                            .padding(.trailing, 32)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .contentShape(Rectangle())
+                }
+                .disabled(currentPrayerIndex == prayers.count - 1)
+                .buttonStyle(.plain)
+            }
+            .frame(height: 88)
+            .background(Color(.secondarySystemBackground))
         }
         
         .onAppear{
@@ -315,7 +410,8 @@ struct RosaryView: View {
             }
             
             self.todaysMysteries = getMysteries(for: today)
-                        
+            self.selectedMystery = self.todaysMysteries
+
             AnalyticsManager.shared.logScreenView(screenName: screenName)
         }
         .onDisappear{

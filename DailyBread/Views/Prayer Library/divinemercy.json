@@ -1,0 +1,312 @@
+[
+    {
+        "id": "sign_of_cross",
+        "name": "Sign of the Cross",
+        "text": "In the name of the Father, and of the Son, and of the Holy Spirit. Amen."
+    },
+    {
+        "id": "opening_our_father",
+        "name": "Our Father",
+        "text": "Our Father, who art in heaven, hallowed be thy name; thy kingdom come, thy will be done on earth as it is in heaven.\n\nGive us this day our daily bread, and forgive us our trespasses, as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen."
+    },
+    {
+        "id": "opening_hail_mary",
+        "name": "Hail Mary",
+        "text": "Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.\n\nHoly Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen."
+    },
+    {
+        "id": "apostles_creed",
+        "name": "Apostles' Creed",
+        "text": "I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, his only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried; he descended into hell; on the third day he rose again from the dead; he ascended into heaven, and is seated at the right hand of God the Father almighty; from there he will come to judge the living and the dead.\n\nI believe in the Holy Spirit, the holy catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen."
+    },
+    {
+        "id": "decade_large_1",
+        "name": "Eternal Father",
+        "text": "Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your dearly beloved Son, Our Lord Jesus Christ, in atonement for our sins and those of the whole world."
+    },
+    {
+        "id": "decade_small_1_1",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_2",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_3",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_4",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_5",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_6",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_7",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_8",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_9",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_1_10",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_large_2",
+        "name": "Eternal Father",
+        "text": "Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your dearly beloved Son, Our Lord Jesus Christ, in atonement for our sins and those of the whole world."
+    },
+    {
+        "id": "decade_small_2_1",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_2",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_3",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_4",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_5",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_6",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_7",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_8",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_9",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_2_10",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_large_3",
+        "name": "Eternal Father",
+        "text": "Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your dearly beloved Son, Our Lord Jesus Christ, in atonement for our sins and those of the whole world."
+    },
+    {
+        "id": "decade_small_3_1",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_2",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_3",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_4",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_5",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_6",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_7",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_8",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_9",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_3_10",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_large_4",
+        "name": "Eternal Father",
+        "text": "Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your dearly beloved Son, Our Lord Jesus Christ, in atonement for our sins and those of the whole world."
+    },
+    {
+        "id": "decade_small_4_1",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_2",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_3",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_4",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_5",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_6",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_7",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_8",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_9",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_4_10",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_large_5",
+        "name": "Eternal Father",
+        "text": "Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your dearly beloved Son, Our Lord Jesus Christ, in atonement for our sins and those of the whole world."
+    },
+    {
+        "id": "decade_small_5_1",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_2",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_3",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_4",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_5",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_6",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_7",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_8",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_9",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "decade_small_5_10",
+        "name": "For the Sake of His Sorrowful Passion",
+        "text": "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+    },
+    {
+        "id": "closing_1",
+        "name": "Holy God",
+        "text": "Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world."
+    },
+    {
+        "id": "closing_2",
+        "name": "Holy God",
+        "text": "Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world."
+    },
+    {
+        "id": "closing_3",
+        "name": "Holy God",
+        "text": "Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world."
+    }
+]
